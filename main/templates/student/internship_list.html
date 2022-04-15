@@ -1,0 +1,382 @@
+{% extends 'student/studentbase.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Preloader Start -->
+    
+    <!-- Preloader End -->
+<!-- choose one -->
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="">
+<meta name="theme-color" content="#ff8a00">
+<meta name="description" content="Job Portal HTML Template">
+<meta name="keywords" content="Employment, Naukri, Shine, Indeed, Job Posting, Job Provider">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+
+<body>
+    <div id="wrapper"> 
+        <!-- Header Container -->
+        
+        <header id="utf-header-container-block"> 
+            <div id="header">
+              <div class="container"> 
+                <div class="utf-left-side"> 
+                  <div id="logo"> <a href="index-1.html"><img src="{% static 'asset1/images/logoimage.png' %}" alt=""></a> </div>
+                  <nav id="navigation">
+                    <ul id="responsive">
+                      <li><a href="index-1.html#" class="current ">Home </a>
+                       
+                      </li>
+                      <li class=""><a href="/all_internships">Internships  </a>
+                  
+                      </li>
+                      <li><a href="index-1.html#">User Panel</a>
+                        <ul class="dropdown-nav">
+                          <li><a href="dashboard.html"><i class="icon-feather-chevron-right"></i> Dashboard</a></li>
+                          <li><a href="dashboard-jobs-post.html"><i class="icon-feather-chevron-right"></i> Manage Jobs Post</a></li> 
+                          <li><a href="dashboard-manage-jobs.html"><i class="icon-feather-chevron-right"></i> Manage Jobs</a></li>
+                          <li><a href="dashboard-manage-resume.html"><i class="icon-feather-chevron-right"></i> Manage Resume</a></li>
+                          <li><a href="dashboard-bookmarks.html"><i class="icon-feather-chevron-right"></i> Bookmarks Jobs</a></li>
+                          <li><a href="http://jobword.utouchdesign.com/jobword_ltr/dashboard-manage-tasks.html"><i class="icon-feather-chevron-right"></i> Freelancer Tasks</a>
+                            <ul class="dropdown-nav">
+                              <li><a href="dashboard-freelancer-manage-tasks-list.html"><i class="icon-feather-chevron-right"></i> Freelancer Manage Tasks</a></li>
+                              <li><a href="dashboard-manage-bidders-list.html"><i class="icon-feather-chevron-right"></i> Freelancer Manage Bidders</a></li>
+                              <li><a href="dashboard-freelancer-active-bids.html"><i class="icon-feather-chevron-right"></i> Freelancer Active Bids</a></li>
+                              <li><a href="dashboard-freelancer-add-post-bids.html"><i class="icon-feather-chevron-right"></i> Freelancer Post Bids</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="dashboard-reviews.html"><i class="icon-feather-chevron-right"></i> Reviews</a></li>
+                          <li><a href="dashboard-my-profile.html"><i class="icon-feather-chevron-right"></i> My Profile</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="index-1.html#">Pages</a>
+                        <ul class="dropdown-nav">
+                          <li><a href="about-us.html"><i class="icon-feather-chevron-right"></i> About Us</a></li>	
+                          <li><a href="login.html"><i class="icon-feather-chevron-right"></i> Login</a></li>
+                          <li><a href="register.html"><i class="icon-feather-chevron-right"></i> Sign Up</a></li>
+                          <li><a href="checkout-page.html"><i class="icon-feather-chevron-right"></i> Order Checkout</a></li>
+                          <li><a href="order-confirmation.html"><i class="icon-feather-chevron-right"></i> Order Confirmation</a></li>
+                          <li><a href="invoice-template.html"><i class="icon-feather-chevron-right"></i> Invoice Template</a></li>
+                          <li><a href="user-elements.html"><i class="icon-feather-chevron-right"></i> User Elements</a></li>
+                          <li><a href="icons-cheatsheet.html"><i class="icon-feather-chevron-right"></i> Icons Cheatsheet</a></li>
+                          <li><a href="faq-page.html"><i class="icon-feather-chevron-right"></i> FAQ Page</a></li>	
+                          <li><a href="pages-404.html"><i class="icon-feather-chevron-right"></i> 404 Page</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="index-1.html#">Blog</a>
+                        <ul class="dropdown-nav">
+                          <li><a href="blog-right-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog List Right Sidebar</a></li>
+                          <li><a href="blog-left-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog List Left Sidebar</a></li>
+                          <li><a href="blog-post-right-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog Detail Right Sidebar</a></li>
+                          <li><a href="blog-post-left-sidebar.html"><i class="icon-feather-chevron-right"></i> Blog Detail Left Sidebar</a></li>                  
+                        </ul>
+                      </li>
+                      <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                  </nav>
+                  <div class="clearfix"></div>                    
+                </div>
+                
+                <div class="utf-right-side"> 
+                  <div class="utf-header-widget-item"> <a href="index-1.html#utf-signin-dialog-block" class="popup-with-zoom-anim log-in-button"><i class="icon-feather-log-in"></i> <span>Sign In</span></a> </div>	
+                  <div class="utf-header-widget-item"> 
+                    <div class="utf-header-notifications user-menu">
+                      <div class="utf-header-notifications-trigger user-profile-title"> 
+                       
+                        <a href="index-1.html#">
+                            <div class="user-avatar status-online"><img src="images/user_small_1.jpg" alt=""> </div>	
+                            <div class="user-name">{{request.user}}</div>	
+                        </a> 
+                      </div>
+                      <div class="utf-header-notifications-dropdown-block"> 
+                        <ul class="utf-user-menu-dropdown-nav">
+                          <li><a href="/student_profile"><i class="icon-line-awesome-user-secret"></i> Edit Profile</a></li>
+                          <li><a href="/myapplication"><i class="icon-material-outline-dashboard"></i> My Applications</a></li>
+                          <li><a href="/logout"><i class="icon-material-outline-group"></i> Logout</a></li>
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="mmenu-trigger">
+                    <button class="hamburger utf-hamburger-collapse-item" type="button"> <span class="utf-hamburger-box-item"> <span class="utf-hamburger-inner-item"></span> </span> </button>
+                  </span> 
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+        </header>
+        <div class="clearfix"></div>
+        <!-- Header Container / End --> 
+        
+        <!-- Titlebar -->
+	<div id="titlebar" class="gradient">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12">
+			  <h2>Jobs Listing Left Sidebar</h2>
+			  <nav id="breadcrumbs">
+				<ul>
+				  <li><a href="index-1.html">Home</a></li>
+				  <li>Jobs Listing Left Sidebar</li>
+				</ul>
+			  </nav>
+			</div>
+		  </div>
+		</div>
+	</div>
+  <!-- Titlebar End -->
+  
+
+  <!-- Search Jobs End -->
+  
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-lg-4">
+        <div class="utf-sidebar-container-aera">
+	
+		  
+		
+		  
+          <div class="utf-sidebar-widget-item">
+            <h3>Category</h3>
+            <select class="selectpicker" id="category" name="category" data-live-search="true" data-selected-text-format="count" data-size="7" title="All Categories">
+              <option>Web Design</option>
+              <option>Accountant</option>
+              <option>Data Analytics</option>
+              <option>Marketing</option>
+              <option>Software Developing</option>
+              <option>IT & Networking</option>
+              <option>Translation</option>
+              <option>Sales & Marketing</option>
+            </select>
+          </div>
+          <form method="post" class="form-horizontal" enctype="multipart/form-data" role="form" style="padding-top:2%">
+            {% csrf_token %}
+
+          <div class="utf-sidebar-widget-item">
+            <h3>Category</h3>
+            <select class="selectpicker" id="category" name="category" data-live-search="true" data-selected-text-format="count" data-size="7" title="All Categories">
+              <option value="Angular">Angular</option>
+              <option>Web Design</option>
+              <option>Accountant</option>
+              <option>Data Analytics</option>
+              <option>Marketing</option>
+              <option>Software Developing</option>
+              <option>IT & Networking</option>
+              <option>Translation</option>
+              <option>Sales & Marketing</option>
+            </select>
+          </div>
+          <div class="clearfix"></div>
+          <input type="submit" value="Submit">
+            </form>
+		  
+	
+		  <div class="clearfix"></div>
+		  
+
+      
+            
+          <div class="utf-sidebar-widget-item">
+            <h3>Hourly Rate</h3>
+            <div class="margin-top-55"></div>            
+            <input class="range-slider" type="text" value="" data-slider-currency="$" data-slider-min="5000" data-slider-max="50000" data-slider-step="100" data-slider-value="[5000,40000]"/>
+          </div>
+        </div>
+      </div>
+	  
+      <div class="col-xl-9 col-lg-8">
+        <div class="utf-inner-search-section-title">
+			<h4><i class="icon-material-outline-search"></i> Search Jobs Listing Results</h4>
+		</div>
+        <div class="utf-notify-box-aera margin-top-15">
+          <div class="utf-switch-container-item">
+            <span>Showing 1–10 of 50 Jobs Results :</span>			
+          </div>          
+		  <div class="sort-by">
+				<span>Sort By:</span>
+				<select class="selectpicker hide-tick">
+					<option>A to Z</option>
+					<option>Newest</option>
+					<option>Oldest</option>
+					<option>Random</option>
+				</select>
+			</div>
+        </div>
+		
+        <div class="utf-listings-container-part compact-list-layout margin-top-35"> 
+            {% for j in jobs %}
+
+            <a href="/internship_detail/{{j.id}}" class="utf-job-listing"> 
+			  <div class="utf-job-listing-details"> 
+				<div class="utf-job-listing-company-logo"> <img src="{% static 'asset1/internship_icon.png' %}"  alt=""> </div>
+				<div class="utf-job-listing-description">
+				  <h3 class="utf-job-listing-title">   &nbsp;  {{j.company.user.name}}</span></h3>
+				  <div class="utf-job-listing-footer">
+					<ul>
+					  <li> <i class="lni lni-code"></i>{{j.category}}</li>
+					  <li> <i class="lni lni-money-protection"></i>{{j.stipend}}K </li>
+					  <li><i class="icon-material-outline-location-on"></i>{{j.location}}</li>
+					  <li><i class="icon-material-outline-access-time"></i> {{j.duration}} Month </li>
+					</ul>
+				  </div>
+				</div>
+			   </div>
+			</a> 
+            {% endfor %}
+
+		
+		</div>
+        
+        <!-- Pagination -->
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="col-md-12"> 
+            <div class="utf-pagination-container-aera margin-top-30 margin-bottom-60">
+              <nav class="pagination">
+                <ul>
+                  <li class="utf-pagination-arrow"><a href="jobs-list-layout-leftside.html#"><i class="icon-material-outline-keyboard-arrow-left"></i></a></li>
+                  <li><a href="jobs-list-layout-leftside.html#" class="current-page">1</a></li>
+                  <li><a href="jobs-list-layout-leftside.html#">2</a></li>
+                  <li><a href="jobs-list-layout-leftside.html#">3</a></li>
+                  <li class="utf-pagination-arrow"><a href="jobs-list-layout-leftside.html#"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Subscribe Block End -->
+        <!-- Subscribe Block Start -->
+        <section class="utf_cta_area_item utf_cta_area2_block">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="utf_subscribe_block">
+                          <div class="col-xl-8 col-md-7">
+                              <div class="section-heading">
+                                  <h2 class="utf_sec_title_item utf_sec_title_item2">Subscribe to Our Newsletter!</h2>
+                                  <p class="utf_sec_meta">Subscribe to get latest updates and information.</p>
+                              </div>
+                          </div>
+                          <div class="col-xl-4 col-md-5">
+                              <div class="contact-form-action">
+                                  <form method="post">
+                                      <i class="icon-material-baseline-mail-outline"></i>
+                                      <input class="form-control" type="email" placeholder="Enter your email" required="">
+                                      <button class="utf_theme_btn" type="submit">Subscribe</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </section>
+        <!-- Subscribe Block End -->
+        
+        <!-- Footer -->
+        <div id="footer"> 
+          <div class="utf-footer-section-item-block">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-4 col-md-12">
+                  <div class="utf-footer-item-links">
+                      <a href="index-1.html"><img class="footer-logo" src="images/footer_logo.png" alt=""></a>
+                      <p>Lorem Ipsum is simply dummy text of printing and type setting industry. Lorem Ipsum been industry standard dummy text ever since, when unknown printer took a galley type scrambled.</p>								
+                  </div>
+                </div>
+                
+                <div class="col-xl-2 col-md-3 col-sm-6">
+                  <div class="utf-footer-item-links">
+                    <h3>Job Categories</h3>
+                    <ul>
+                      <li><a href="jobs-list-layout-leftside.html"><i class="icon-feather-chevron-right"></i> <span>Developement</span></a></li>
+                      <li><a href="jobs-list-layout-leftside.html"><i class="icon-feather-chevron-right"></i> <span>Designing</span></a></li>
+                      <li><a href="jobs-list-layout-leftside.html"><i class="icon-feather-chevron-right"></i> <span>Marketing</span></a></li>
+                      <li><a href="jobs-list-layout-leftside.html"><i class="icon-feather-chevron-right"></i> <span>Data Analytics</span></a></li>				
+                      <li><a href="login.html#"><i class="icon-feather-chevron-right"></i> <span>Post New Job</span></a></li>				
+                    </ul>
+                  </div>
+                </div>
+                
+           
+                
+                <div class="col-xl-2 col-md-3 col-sm-6">
+                  <div class="utf-footer-item-links">
+                    <h3>Resources</h3>
+                    <ul>
+                      <li><a href="login.html#"><i class="icon-feather-chevron-right"></i> <span>My Account</span></a></li>
+                      <li><a href="login.html#"><i class="icon-feather-chevron-right"></i> <span>Support</span></a></li>
+                      <li><a href="login.html#"><i class="icon-feather-chevron-right"></i> <span>How It Works</span></a></li>
+                      <li><a href="login.html#"><i class="icon-feather-chevron-right"></i> <span>Underwriting</span></a></li>
+                      <li><a href="login.html#"><i class="icon-feather-chevron-right"></i> <span>Employers</span></a></li>                
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="col-xl-2 col-md-3 col-sm-6">
+                  <div class="utf-footer-item-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                      <li><a href="jobs-list-layout-leftside.html"><i class="icon-feather-chevron-right"></i> <span>Jobs Listing</span></a></li>
+                      <li><a href="about-us.html"><i class="icon-feather-chevron-right"></i> <span>About Us</span></a></li>
+                      <li><a href="contact.html"><i class="icon-feather-chevron-right"></i> <span>Contact Us</span></a></li>
+                      <li><a href="privacy-policy.html"><i class="icon-feather-chevron-right"></i> <span>Privacy Policy</span></a></li>
+                      <li><a href="terms-condition.html"><i class="icon-feather-chevron-right"></i> <span>Term & Condition</span></a></li>
+                    </ul>
+                  </div>
+                </div>          
+              </div>
+            </div>
+          </div>
+          
+          <!-- Footer Copyrights -->
+          <div class="utf-footer-copyright-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-12">Copyright &copy; 2021 All Rights Reserved.</div>
+              </div>
+            </div>
+          </div>
+          <!-- Footer Copyrights / End -->     
+        </div>
+        <!-- Footer / End -->    
+      </div>
+      <!-- Wrapper / End --> 
+</body>
+
+<script src="{% static 'asset1/js/custom_jquery.js' %}"></script> 
+<script src="{% static 'asset1/js/typed.js' %}"></script> 
+<script src="{% static 'asset1/js/slick.min.js' %}"></script> 
+<script src="{% static 'asset1/js/magnific-popup.min.js' %}"></script> 
+<script src="{% static 'asset1/js/counterup.min.js' %}"></script> 
+<script src="{% static 'asset1/js/clipboard.min.js' %}"></script> 
+<script src="{% static 'asset1/js/snackbar.js' %}"></script> 
+<script src="{% static 'asset1/js/bootstrap-select.min.js' %}"></script> 
+<script src="{% static 'asset1/js/bootstrap-slider.min.js' %}"></script> 
+<script src="{% static 'asset1/js/simplebar.min.js' %}"></script> 
+<script src="{% static 'asset1/js/tippy.all.min.js' %}"></script> 
+<script src="{% static 'asset1/js/mmenu.min.js' %}"></script> 
+<script src="{% static 'asset1/js/jquery-migrate-3.0.0.min.js' %}"></script> 
+<script src="{% static 'asset1/js/jquery-3.3.1.min.js' %}"></script> 
+
+
+
+{% endblock content %}
+
+</html>
