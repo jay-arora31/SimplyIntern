@@ -44,7 +44,7 @@ class register_as_company(View):
     
     form_class = CompanySignUpForm
     initial={'key':'value'}
-    template_name="main/Employer-Signup.html"
+    template_name="company/Employer-Signup.html"
     
     def get(self,request):
         form = self.form_class(initial=self.initial)
@@ -59,7 +59,7 @@ class register_as_company(View):
             password = form.cleaned_data.get('password')
             user = User.objects.create_user(email, password)
 
-            user.active = False
+            user.active = True
             user.name = form.cleaned_data.get('name')
             user.is_company = True
             user.save()
@@ -67,19 +67,9 @@ class register_as_company(View):
             company = Company.objects.create(user = user)
             company.save()
             
-            current_site = get_current_site(request)
-            mail_subject = 'Verify your email to activate your account.'
-            message = render_to_string('main/acc_active_email.html', {
-                   'user': user,
-                   'domain': current_site.domain,
-                   'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                   'token': account_activation_token.make_token(user),
-                })
-            to_email = form.cleaned_data.get('email')
-            email = EmailMessage(mail_subject, message, to=[to_email])
-            email.send()
+           
 
-            return HttpResponse('Please confirm your email address to complete the registration') 
+            return redirect('main:homepage')
 
         else:      
             print("ERROR")                                                         
@@ -113,7 +103,7 @@ class register_as_student(View):
             password = form.cleaned_data.get('password')
             user = User.objects.create_user(email, password)
         
-            user.active = False
+            user.active = True
             user.first_name = form.cleaned_data.get('first_name')
             user.last_name = form.cleaned_data.get('last_name')
             user.is_student = True
@@ -122,21 +112,8 @@ class register_as_student(View):
             student = Student.objects.create(user = user)
             student.save()
 
-            current_site = get_current_site(request)
-            mail_subject = 'Verify your email to activate your account.'
-            message = render_to_string('main/acc_active_email.html', {
-                   'user': user,
-                   'domain': current_site.domain,
-                   'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                   'token': account_activation_token.make_token(user),
-                })
-            to_email = form.cleaned_data.get('email')
-            email = EmailMessage(
-                        mail_subject, message, to=[to_email]
-            )
-            email.send()
-            return HttpResponse('Please confirm your email address to complete the registration') 
-            
+            return redirect('main:homepage')
+
         else:
             for msg in form.error_messages:
                 messages.error(request, f"{msg}: {form.error_messages[msg]}")
@@ -262,14 +239,22 @@ class homepage(View):
     def get(self,request):
         internship=Internship.objects.all().order_by('-date_published')
         internship1=[]
-        for i in range(5):
-            internship1.append(internship[i])
-        for i in internship :
-            print("----------------------------")
-            print(i)  
+        internship1=[]
+        if internship:
+            print(len(internship))
+            if len(internship)<5:
+                for i in range(len(internship)):
+                    internship1.append(internship[i])
+            else:
+                for i in range(5):
+                    internship1.append(internship[i])
+        
         context={
             'internship':internship1
-        }                                           
+        }    
+        if request.user.is_authenticated:
+            if request.user.is_company:
+                return redirect("main:company")
         return render(request=request,context=context, template_name="student/studenthome.html")
 
 
@@ -289,7 +274,7 @@ class company_profile(View):
                 return redirect("main:student") 
             return redirect("main:homepage")
 
-        return render(request=request, template_name="main/Employer-Profile.html", context={"jobs":Internship.objects.all(), "company" : company})
+        return render(request=request, template_name="company/company_profile.html", context={"jobs":Internship.objects.all(), "company" : company})
 
 
 class edit_company_profile(View):
@@ -311,7 +296,7 @@ class edit_company_profile(View):
 
     def post(self, request):
         form = EditEmployerProfileForm(request.POST,request.FILES or None,instance=request.user)
-
+ 
         if form.is_valid():
             try :
                 company = Company.objects.get(user = request.user)
@@ -386,6 +371,10 @@ def edit_this_internship(request, pk):
 
     if request.method=='POST':
         form=EditInternship(request.POST,instance=job)
+        category=request.POST.get('category')
+        print("==============================================================================")
+        print(form.errors)
+        print(category)
         if form.is_valid():
             job=form.save()
             messages.success(request,"Internship Edited successfully!!")
@@ -558,7 +547,7 @@ class student_profile(View):
             student = Student.objects.get(user = request.user)
         except Student.DoesNotExist:
             return redirect("main:homepage")                                        
-        return render(request=request, template_name="main/StudentProfile.html", context={"intern":Internship.objects.all(), "student" : student})   
+        return render(request=request, template_name="student/student_profile.html", context={"intern":Internship.objects.all(), "student" : student})   
 
 
 class edit_student_profile(View):
@@ -579,6 +568,8 @@ class edit_student_profile(View):
 
     def post(self, request):
         form = EditStudentProfileForm(request.POST,request.FILES or None, instance=request.user)
+        print("=================================")
+        print(form.errors)
 
         if form.is_valid():
             try :
@@ -679,10 +670,10 @@ class all_internships(View):
             result=Internship.objects.filter(category__category_name=cat)
         if cat is None:
             result=Internship.objects.all()
-
+        clear=True
         return render(request=request,
                       template_name="student/internship_list.html",
-                      context={"jobs":result},
+                      context={"jobs":result,'clear':clear},
                     ) 
 
 
@@ -720,3 +711,6 @@ class myapplication(View):
             messages.error(request, "No Applications Found")
             return redirect("main:student")
         return render(request=request,template_name="student/myapplication.html",context={"application" : application})
+
+def handler404(request,exception):
+    return render(request, 'student/404.html', status=404)

@@ -41,3 +41,4 @@ urlpatterns = [
                 views.activate, name='activate'),
 
 ]
+handler404 = 'main.views.handler404'

@@ -1,0 +1,268 @@
+{% extends 'student/studentbase.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Preloader Start -->
+    
+    <!-- Preloader End -->
+<!-- choose one -->
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="">
+<meta name="theme-color" content="#ff8a00">
+<meta name="description" content="Job Portal HTML Template">
+<meta name="keywords" content="Employment, Naukri, Shine, Indeed, Job Posting, Job Provider">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+
+<body>
+    <div id="wrapper"> 
+        <!-- Header Container -->
+        
+        <header id="utf-header-container-block"> 
+          <div id="header">
+            <div class="container"> 
+              <div class="utf-left-side"> 
+                <div id="logo"> <a href="http://127.0.0.1:8000/"><img src="{% static 'asset1/images/logoimage.png' %}" alt=""></a> </div>
+                <nav id="navigation">
+                  <ul id="responsive">
+                    <li><a href="http://127.0.0.1:8000/" class="current ">Home </a>
+                     
+                    </li>
+                    <li class=""><a href="/all_internships">Internships  </a>
+                
+                
+           
+                  </ul>
+                </nav>
+                <div class="clearfix"></div>                    
+              </div>
+              
+              <div class="utf-right-side"> 
+                {% if user.is_authenticated %}            <!--When the user is logged in-->
+                {% else %}
+                <div class="utf-header-widget-item"> <a href="/register_as_student" class="log-in-button"><span>Sign In Student</span></a> </div>	
+                <div class="utf-header-widget-item"> <a href="/register_as_company" class="log-in-button"><span>Sign In Company</span></a> </div>	
+               <a href="/login"><div class="utf-header-widget-item"> <a href="/login" class=" log-in-button"><?xml version="1.0" encoding="utf-8"?>
+           
+                </svg>
+                 <span>Login</span></a> </div>	</a> 
+                {% endif %}
+                {% if user.is_authenticated %}            <!--When the user is logged in-->
+
+                <div class="utf-header-widget-item"> 
+                  <div class="utf-header-notifications user-menu">
+                    <div class="utf-header-notifications-trigger "> 
+                 
+                      <div class="user-name" style="position: relative; top: 20px; left: 10px;">{{request.user.first_name}}</div>	
+                        
+                      <a href="#">
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                        <svg fill="#000000" width="20" height="20" version="1.1" id="lni_lni-chevron-down-circle"
+                           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64"
+                           style="enable-background:new 0 0 64 64;" xml:space="preserve">
+                        <g>
+                          <path d="M46.8,25.3L32,35.4L17.2,25.3c-0.8-0.5-1.9-0.3-2.4,0.5c-0.5,0.8-0.3,1.9,0.5,2.4l15.4,10.4C31,38.9,31.5,39,32,39
+                            c0.5,0,1-0.1,1.5-0.4l15.3-10.4c0.8-0.5,1-1.6,0.5-2.4C48.7,24.9,47.6,24.7,46.8,25.3z"/>
+                          <path d="M32,1.3C15,1.3,1.3,15,1.3,32C1.3,49,15,62.8,32,62.8C49,62.8,62.8,49,62.8,32C62.8,15,49,1.3,32,1.3z M32,59.3
+                            C17,59.3,4.8,47,4.8,32C4.8,17,17,4.8,32,4.8C47,4.8,59.3,17,59.3,32C59.3,47,47,59.3,32,59.3z"/>
+                        </g>
+                        </svg>
+                        
+                      </a> 
+                    </div>
+                    <div class="utf-header-notifications-dropdown-block"> 
+                      <ul class="utf-user-menu-dropdown-nav">
+                        <li><a href="/student_profile"><i class=""></i> Edit Profile</a></li>
+                        <li><a href="/myapplication"><i class=""></i> My Applications</a></li>
+                        <li><a href="/logout"><i class=""></i> Logout</a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+
+                <span class="mmenu-trigger">
+                  <button class="hamburger utf-hamburger-collapse-item" type="button"> <span class="utf-hamburger-box-item"> <span class="utf-hamburger-inner-item"></span> </span> </button>
+                </span> 
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+      </header>
+        <div class="clearfix"></div>
+        <!-- Header Container / End --> 
+        
+        <!-- Titlebar -->
+	<div id="titlebar" class="gradient">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12">
+			  <h2>My Profile</h2>
+			
+			</div>
+		  </div>
+		</div>
+	</div>
+  <!-- Titlebar End -->
+  
+
+  <!-- Search Jobs End -->
+  
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-10 col-lg-7">
+        <div class="utf-sidebar-container-aera">
+	
+		  
+		
+		  
+   
+        
+	
+		  <div class="clearfix"></div>
+		  
+
+      
+   
+        </div>
+      </div>
+	  
+      <div class="col-xl-9 col-lg-12" style="display: block; margin: auto;">
+   
+		
+        <div class="utf-listings-container-part compact-list-layout margin-top-35"> 
+            <div>
+                {% for message in messages %}
+                   <div class="message">
+                   <h4 style="text-align: center; color:slateblue;">{{ message }}</h4>
+                   <a href="#" class="del-msg"></a>
+                   </div>
+                {% endfor %}
+            </div>
+    
+            <div class="row">
+              <div class="col-md-7">
+               <object class="dash-img" type="image/svg+xml" data="{% static 'main/StudentProfile2.svg' %}">
+               </object>
+              </div>
+              <div class="col-md-5 personal-info" style="padding-top:3%">
+                
+                <h2 id="profile-head"style="color: cornflowerblue">Personal info</h2>
+                
+                <hr>
+                {% if student.image %}
+                <img src="/media/{{student.image}}" style="width: 50%; height:30%; border-radius: 25px"">
+                {% else %}
+                <img src="{% static 'main/student.png' %}" style="width: 50%; height:30%; border-radius: 25px">
+                {% endif %}
+                <hr>
+                
+                <h4>Name:</h4>
+                <h5>{{user.first_name}} {{user.last_name}} </h5>
+                <hr>
+    
+                <h4>Email:</h4>
+                <h5>{{user.email}}</h5>
+                <hr>
+    
+                {% if student.college_name %}
+                <h4>College:</h4>
+                <h5>{{student.college_name}}</h5><hr>
+                {% endif %}
+    
+                {% if student.city %}
+                <h4>City:</h4>
+                <h5> {{student.city}}</h5><hr>
+                {% endif %}
+                 
+                {% if student.basic_skills %}
+                <h4>Skills:</h4>
+                <h5>{{student.basic_skills}}</h5><hr> 
+                {% endif %}
+               </div>
+            </div>
+            
+            <div clas="apply-btn" style="margin-left: 45%;padding-top: 2%">
+              <button class="button"><span><a href="/all_internships" style="color: black">Apply for Internship</a></span></button>
+            </div>
+            <br><br><br>
+		
+		</div>
+        <br><br><br>
+        <!-- Pagination -->
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+              
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Subscribe Block End -->
+        <!-- Subscribe Block Start -->
+        <section class="utf_cta_area_item utf_cta_area2_block">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="utf_subscribe_block">
+                          <div class="col-xl-8 col-md-7">
+                              <div class="section-heading">
+                                  <h2 class="utf_sec_title_item utf_sec_title_item2">Subscribe to Our Newsletter!</h2>
+                                  <p class="utf_sec_meta">Subscribe to get latest updates and information.</p>
+                              </div>
+                          </div>
+                          <div class="col-xl-4 col-md-5">
+                              <div class="contact-form-action">
+                                  <form method="post">
+                                      <i class="icon-material-baseline-mail-outline"></i>
+                                      <input class="form-control" type="email" placeholder="Enter your email" required="">
+                                      <button class="utf_theme_btn" type="submit">Subscribe</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </section>
+        <!-- Subscribe Block End -->
+        
+        <!-- Footer -->
+      
+        <!-- Footer / End -->    
+      </div>
+      <!-- Wrapper / End --> 
+</body>
+
+<script src="{% static 'asset1/js/custom_jquery.js' %}"></script> 
+<script src="{% static 'asset1/js/typed.js' %}"></script> 
+<script src="{% static 'asset1/js/slick.min.js' %}"></script> 
+<script src="{% static 'asset1/js/magnific-popup.min.js' %}"></script> 
+<script src="{% static 'asset1/js/counterup.min.js' %}"></script> 
+<script src="{% static 'asset1/js/clipboard.min.js' %}"></script> 
+<script src="{% static 'asset1/js/snackbar.js' %}"></script> 
+<script src="{% static 'asset1/js/bootstrap-select.min.js' %}"></script> 
+<script src="{% static 'asset1/js/bootstrap-slider.min.js' %}"></script> 
+<script src="{% static 'asset1/js/simplebar.min.js' %}"></script> 
+<script src="{% static 'asset1/js/tippy.all.min.js' %}"></script> 
+<script src="{% static 'asset1/js/mmenu.min.js' %}"></script> 
+<script src="{% static 'asset1/js/jquery-migrate-3.0.0.min.js' %}"></script> 
+<script src="{% static 'asset1/js/jquery-3.3.1.min.js' %}"></script> 
+
+
+
+{% endblock content %}
+
+</html>

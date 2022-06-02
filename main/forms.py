@@ -88,19 +88,17 @@ class AcceptReject(ModelForm):
         model = Application
         fields=("is_accept","is_reject")
 
-
 class EditStudentProfileForm(UserChangeForm):
     class Meta:
         model = Student
         fields = (
             'phone_no',
-      
+            'image',
             'college_name',
             'basic_skills',
             'city',
             'year_of_study',
         )
-
 class EditEmployerProfileForm(UserChangeForm):
 
     class Meta:
